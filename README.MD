@@ -17,16 +17,6 @@ It supports logging:
 
 - .NET `10.0`
 
-## Installation (in this solution)
-
-The example project uses a local reference:
-
-```xml
-<ItemGroup>
-  <ProjectReference Include="..\FastLog\FastLog.csproj" />
-</ItemGroup>
-```
-
 ## Configuration
 
 Configure it with DI:
@@ -73,7 +63,6 @@ public class App
 	{
 		_fastLog.LogTrace("Application started");
 		_fastLog.LogError("This is a sample error log");
-		_fastLog.Log(LogType.Warning, "This is a warning log");
 	}
 }
 ```
@@ -106,7 +95,7 @@ services.AddFastLog(options =>
 {
 	options.EnableConsoleLogging = true;
 	options.EnableFileLogging = true;
-	options.FileLoggingPath = "logs/fastlog.log";
+	options.FileLoggingPath = "logs/exemple";
 });
 ```
 

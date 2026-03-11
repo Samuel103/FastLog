@@ -1,5 +1,5 @@
-﻿using FastLog;
-using FastLog.Logging;
+﻿using QuickLog.net;
+using QuickLog.net.Logging;
 using Microsoft.Extensions.DependencyInjection;
 static class Program
 {
@@ -7,7 +7,7 @@ static class Program
 	{
 		var services = new ServiceCollection();
 
-		services.AddFastLog(options =>
+		services.AddQuickLog(options =>
 		{
 			options.EnableConsoleLogging = true;
 			options.EnableFileLogging = true;
@@ -24,14 +24,14 @@ static class Program
 
     public class App{
 
-		readonly IFastLog _fastLog;
-        public App(IFastLog fastLog){
-            _fastLog = fastLog;
+		readonly IQuickLog _quickLog;
+        public App(IQuickLog quickLog){
+			_quickLog = quickLog;
         }
 
         public void Run(){
-			_fastLog.LogTrace("Application started");
-			_fastLog.LogError("This is a sample error log");
+			_quickLog.LogTrace("Application started");
+			_quickLog.LogError("This is a sample error log");
         }
     }
 }

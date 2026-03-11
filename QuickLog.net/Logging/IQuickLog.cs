@@ -1,6 +1,6 @@
-namespace FastLog.Logging;
+namespace QuickLog.net.Logging;
 
-public interface IFastLog
+public interface IQuickLog
 {
     public void LogConsole(LogType logType, string message);
     

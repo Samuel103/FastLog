@@ -1,4 +1,4 @@
-namespace FastLog;
+namespace QuickLog.net;
 
 public enum LogType
 {

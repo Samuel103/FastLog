@@ -1,6 +1,6 @@
-namespace FastLog;
+namespace QuickLog.net;
 
-public class FastLogOption
+public class QuickLogOption
 {
     public bool? EnableConsoleLogging {get; set;}
     public bool? EnableFileLogging {get;set;}

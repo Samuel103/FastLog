@@ -1,22 +1,22 @@
-namespace FastLog.Logging;
+namespace QuickLog.net.Logging;
 
-public class FastLog : IFastLog
+public class QuickLog : IQuickLog
 {
-    private readonly FastLogOption _fastLogOption;
+    private readonly QuickLogOption _quickLogOption;
 
-    public FastLog(FastLogOption options)
+    public QuickLog(QuickLogOption options)
     {
-        _fastLogOption = options;    
+        _quickLogOption = options;    
     }
 
     public void Log(LogType logType, string message)
     {
-        if (_fastLogOption.EnableConsoleLogging ?? true)
+        if (_quickLogOption.EnableConsoleLogging ?? true)
         {
             LogConsole(logType, message);    
         }
         
-        if (_fastLogOption.EnableFileLogging ?? false)
+        if (_quickLogOption.EnableFileLogging ?? false)
         {
             LogFile(logType,message);   
         }
@@ -43,7 +43,7 @@ public class FastLog : IFastLog
 
     public void LogFile(LogType logType, string message)
     {
-        if (!(_fastLogOption.EnableFileLogging ?? false) || string.IsNullOrWhiteSpace(_fastLogOption.FileLoggingPath))
+        if (!(_quickLogOption.EnableFileLogging ?? false) || string.IsNullOrWhiteSpace(_quickLogOption.FileLoggingPath))
         {
             LogConsole(LogType.Error, "Error: either EnableFileLogging is set to false or FileLoggingPath is not set");
             return;
@@ -51,7 +51,7 @@ public class FastLog : IFastLog
 
         try
         {
-            var filePath = _fastLogOption.FileLoggingPath! + (_fastLogOption.AddDateToFileFormat?? true? DateTime.Now.ToString("yyMMdd"):"") + ".log";
+            var filePath = _quickLogOption.FileLoggingPath! + (_quickLogOption.AddDateToFileFormat?? true? DateTime.Now.ToString("yyMMdd"):"") + ".log";
             var directory = Path.GetDirectoryName(filePath);
 
             if (!string.IsNullOrWhiteSpace(directory))

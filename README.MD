@@ -1,6 +1,6 @@
-# FastLog
+# QuickLog.net
 
-`FastLog` is a simple .NET logging library 
+`QuickLog.net` is a simple .NET logging library 
 
 It supports logging:
 - to the console
@@ -8,7 +8,7 @@ It supports logging:
 
 ## Features
 
-- Dependency injection via `AddFastLog(...)`
+- Dependency injection via `AddQuickLog(...)`
 - Basic log levels (`Trace`, `Error``)
 - Console output with timestamp
 - File output with automatic directory creation
@@ -22,12 +22,12 @@ It supports logging:
 Configure it with DI:
 
 ```csharp
-using FastLog;
+using QuickLog.net;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
 
-services.AddFastLog(options =>
+services.AddQuickLog(options =>
 {
 	options.EnableConsoleLogging = true;
 	options.EnableFileLogging = true;
@@ -48,21 +48,21 @@ Available options:
 Inject the logger:
 
 ```csharp
-using FastLog.Logging;
+using QuickLog.net.Logging;
 
 public class App
 {
-	private readonly IFastLog _fastLog;
+	private readonly IQuickLog _quickLog;
 
-	public App(IFastLog fastLog)
+	public App(IQuickLog quickLog)
 	{
-		_fastLog = fastLog;
+		_quickLog = quickLog;
 	}
 
 	public void Run()
 	{
-		_fastLog.LogTrace("Application started");
-		_fastLog.LogError("This is a sample error log");
+		_quickLog.LogTrace("Application started");
+		_quickLog.LogError("This is a sample error log");
 	}
 }
 ```
@@ -91,7 +91,7 @@ To write logs to a file, you must:
 Valid example:
 
 ```csharp
-services.AddFastLog(options =>
+services.AddQuickLog(options =>
 {
 	options.EnableConsoleLogging = true;
 	options.EnableFileLogging = true;
@@ -112,13 +112,13 @@ dotnet run --project Exemple/Exemple.csproj
 The file will be created here:
 
 ```text
-Exemple/logs/fastlog.log
+Exemple/logs/quicklog.log
 ```
 
 ## Quick Structure
 
-- `FastLog/Logging/FastLog.cs`: logger implementation
-- `FastLog/Logging/IFastLog.cs`: logger contract
-- `FastLog/Model/FastLogOption.cs`: configuration options
-- `FastLog/DI/ServiceCollectionExtension.cs`: `AddFastLog` extension
+- `QuickLog.net/Logging/QuickLog.cs`: logger implementation
+- `QuickLog.net/Logging/IQuickLog.cs`: logger contract
+- `QuickLog.net/Model/QuickLogOption.cs`: configuration options
+- `QuickLog.net/DI/ServiceCollectionExtension.cs`: `AddQuickLog` extension
 - `Exemple/Program.cs`: usage example

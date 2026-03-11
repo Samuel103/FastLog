@@ -9,11 +9,13 @@
     <Authors>Samuel Gascon</Authors>
     <Company>Samuel Gascon</Company>
     <Description>Simple logger for .NET</Description>
+    <PackageReadmeFile>README.MD</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/Samuel103/QuickLog.net</RepositoryUrl>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="..\README.MD" Pack="true" PackagePath="\" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
   </ItemGroup>
 </Project>

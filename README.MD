@@ -1,6 +1,6 @@
 # FastLog
 
-`FastLog` is a simple .NET logging library built around DI (`Microsoft.Extensions.DependencyInjection`).
+`FastLog` is a simple .NET logging library 
 
 It supports logging:
 - to the console
@@ -41,7 +41,8 @@ services.AddFastLog(options =>
 {
 	options.EnableConsoleLogging = true;
 	options.EnableFileLogging = true;
-	options.FileLoggingPath = "logs/fastlog.log";
+	options.FileLoggingPath = "logs/exemple";
+    options.AddDateToFileFormat = true;
 });
 ```
 
@@ -49,7 +50,8 @@ Available options:
 
 - `EnableConsoleLogging` (bool?): enables/disables console logging (default `true`)
 - `EnableFileLogging` (bool?): enables/disables file logging (default `false`)
-- `FileLoggingPath` (string?): log file path (for example `logs/fastlog.log`)
+- `FileLoggingPath` (string?): log file path (for example `logs/exemple`)
+- `AddDateToFileFormat` (bool?): enables/diasble date at the end of the file (for example `logs/exemple260311.log`)
 
 ## Usage
 

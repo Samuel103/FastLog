@@ -11,7 +11,8 @@ static class Program
 		{
 			options.EnableConsoleLogging = true;
 			options.EnableFileLogging = true;
-			options.FileLoggingPath = "logs/fastlog.log";
+			options.FileLoggingPath = "Logs/exemple";
+			options.AddDateToFileFormat = true;
 		});
 		services.AddTransient<App>();
 

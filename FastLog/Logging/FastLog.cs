@@ -51,7 +51,7 @@ public class FastLog : IFastLog
 
         try
         {
-            var filePath = _fastLogOption.FileLoggingPath!;
+            var filePath = _fastLogOption.FileLoggingPath! + (_fastLogOption.AddDateToFileFormat?? true? DateTime.Now.ToString("yyMMdd"):"") + ".log";
             var directory = Path.GetDirectoryName(filePath);
 
             if (!string.IsNullOrWhiteSpace(directory))
